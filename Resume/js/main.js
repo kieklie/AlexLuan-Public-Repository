@@ -548,7 +548,6 @@
     }
 
     function render() {
-      if (!isHeroVisible) return;
       frame++;
       if (frame % 2 === 0) spawn();
 
@@ -1466,7 +1465,6 @@
 
     let prevTime = 0;
     function animate(t) {
-      if (!isHeroVisible) return;
       if (t - prevTime < 14) return;
       prevTime = t;
       step();
