@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="栾宜伟 - 个人简历网站">
+  <meta name="author" content="栾宜伟">
+  <title>栾宜伟 | 个人简历</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Fira+Code:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Long+Cang&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 全屏水纹动效层（置于背景之上、内容之下） -->
+  <canvas id="ripple-canvas" aria-hidden="true"></canvas>
+  <!-- 粒子画布（星云紫蓝 + 鼠标轨迹） -->
+  <canvas id="particle-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:999;" aria-hidden="true"></canvas>
+
+  <!-- 顶部导航栏 -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">Alex Luan</a>
+      <button class="nav-toggle" aria-label="切换导航" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#hero">首页</a></li>
+        <li><a href="#education">教育背景</a></li>
+        <li><a href="#experience">工作经历</a></li>
+        <li><a href="#projects">项目经历</a></li>
+        <li><a href="#skills">技能与证书</a></li>
+        <li><a href="#interests">个人兴趣</a></li>
+        <li><a href="#footer">联系方式</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 1. Hero 首屏区域（参考 THE BAND CALLED IT：描边主标题 + 居中块 + 底部引导） -->
+  <section id="hero">
+    <canvas id="fighter-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content hero-content--center">
+        <div class="hero-card">
+          <h1 class="hero-title hero-title--outline"><noscript>ALEX LUAN</noscript></h1>
+          <span class="hero-label">RESUME</span>
+          <p class="hero-subtitle"><noscript>网络工程 · 技术支持 / 测试 / 多媒体创作</noscript></p>
+          <div class="hero-meta">
+            <p class="hero-meta-row"><strong>CONTACT:</strong>  <a href="mailto:3362079920@qq.com" class="copy-email" data-copy="3362079920@qq.com" title="点击复制">QQ邮箱</a> · <a href="mailto:alexluan20130248@gmail.com" class="copy-email" data-copy="alexluan20130248@gmail.com" title="点击复制">Gmail</a> · <a href="https://github.com/kieklie" title="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://steamcommunity.com/profiles/76561198983980478/" title="Steam" target="_blank" rel="noopener noreferrer">Steam</a></p>
+            <p class="hero-meta-row"><strong>SKILLS:</strong> C · Python · Go · PowerShell · RPA · Vibecoding</p>
+          </div>
+          <p class="hero-info hero-slogan" id="hero-slogan" data-slogan-line1="Automation is not about being lazy." data-slogan-line2="It's about being smart."><span class="slogan-text" aria-hidden="true"></span></p>
+        </div>
+      </div>
+    </div>
+    <a href="#education" class="scroll-down-arrow" aria-label="滚动到教育背景">
+      <span class="scroll-down-text">VIEW RESUME</span>
+      <span class="scroll-down-icon">&#8595;</span>
+    </a>
+  </section>
+
+  <!-- 2. 教育背景（含头像与合并信息，长方形卡片） -->
+  <section id="education" class="section section--with-hero-transition">
+    <div class="section-container">
+      <h2 class="section-title">教育背景</h2>
+      <div class="education-with-avatar fade-in-up">
+        <div class="about-avatar avatar-reveal" data-revealed="false">
+          <div class="avatar-reveal-inner">
+            <img class="avatar-layer avatar-back" src="assets/images/个人照.jpg" alt="个人照">
+            <img class="avatar-layer avatar-front" src="assets/images/栾宜伟_ 电子报名照 .jpg" alt="栾宜伟头像">
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="timeline-name">栾宜伟</h3>
+              <p class="timeline-desc timeline-desc--tagline">技术支持 / 测试 / 多媒体创作</p>
+              <p class="timeline-desc"><span class="timeline-desc-label">出生年月：</span>2001.11</p>
+              <p class="timeline-desc"><span class="timeline-desc-label">邮箱：</span><a href="mailto:3362079920@qq.com">3362079920@qq.com</a> / <a href="mailto:alexluan20130248@gmail.com">alexluan20130248@gmail.com</a></p>
+              <p class="timeline-desc"><span class="timeline-desc-label">GitHub：</span><a href="https://github.com/kieklie" target="_blank" rel="noopener noreferrer">kieklie</a></p>
+              <div class="timeline-divider"></div>
+              <h3 class="timeline-school">安徽大学 · 网络工程</h3>
+              <p class="timeline-period">2019.09 - 2023.06 · 安徽大学（双一流，211）</p>
+              <div class="timeline-badges">
+                <span class="badge">双一流 / 211</span>
+                <span class="badge">网络工程专业</span>
+                <span class="badge">GPA 专业前 20%</span>
+                <span class="badge">校三等奖学金（2020-2022）</span>
+                <span class="badge">优秀共青团员（2021）</span>
+              </div>
+              <p class="timeline-desc">主修课程：数据结构，UNIX编程，数据库原理，信号与系统，大数据分析语言，数据可视化，网络安全协议，网络工程，自然语言处理，网络攻击与防护，移动互联网技术。</p>
+              <p class="timeline-desc">技能证书：大学英语四级（CET-4）、C1 驾驶证、Claude Code in Action 认证、影刀 RPA 初级认证。</p>
+              <p class="timeline-desc">活动经历：安徽大学迎新志愿者（2022.09），负责接待新生及家长，组织校园导览与见面会。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 工作与实习经历 -->
+  <section id="experience" class="section">
+    <div class="section-container">
+      <h2 class="section-title">工作与实习经历</h2>
+      <div class="experience-cards experience-grid">
+        <article class="exp-card fade-in-up">
+          <div class="exp-header">
+            <h3>上海微创软件股份有限公司无锡分公司</h3>
+            <p class="exp-role">技术支持工程师</p>
+            <p class="exp-period">2024.03 - 2025.04 · 无锡</p>
+          </div>
+          <div class="exp-summary">
+            <ul>
+              <li>负责 Microsoft 365 套件（Exchange Online、SharePoint Online、Teams、Office 365）的技术支持工作，通过远程工具（Quick Assist）及电话协助客户完成产品部署与日常维护，提升客户满意度。</li>
+              <li>负责 Active Directory (AD)、本地 Exchange 服务器与云服务之间的整合与配置工作，保障混合环境下的用户与权限同步。</li>
+              <li>收集客户产品使用中的问题日志，整理并反馈至微软产品开发团队，助力产品优化。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card fade-in-up">
+          <div class="exp-header">
+            <h3>爱荔枝科技（北京）有限公司</h3>
+            <p class="exp-role">测试实习生</p>
+            <p class="exp-period">2023.02 - 2023.05 · 合肥</p>
+          </div>
+          <div class="exp-summary">
+            <ul>
+              <li>参与汽车语音交互软件测试项目：制定测试计划、编写测试用例，执行功能与回归测试。</li>
+              <li>跟踪并记录软件缺陷，向甲方技术人员提交问题并进行状态跟进。</li>
+              <li>开展用户体验测试，从用户角度评估软件易用性和功能合理性，提出改进建议。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card fade-in-up">
+          <div class="exp-header">
+            <h3>生活万岁（北京）影视传媒有限公司</h3>
+            <p class="exp-role">剪辑师</p>
+            <p class="exp-period">2023.05 - 2024.02</p>
+          </div>
+          <div class="exp-summary">
+            <ul>
+              <li>通过剪映对多条短视频进行剪辑工作，包括视频素材的整理、剪辑、调色以及音频调整。</li>
+              <li>通过 AE 制作多部海外拜年视频、晚会海报、邀请函等。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="exp-card fade-in-up">
+          <div class="exp-header">
+            <h3>生活万岁（北京）影视传媒有限公司</h3>
+            <p class="exp-role">纪录片摄影助理</p>
+            <p class="exp-period">2023.07 · 北京</p>
+          </div>
+          <div class="exp-summary">
+            <ul>
+              <li>对相机、灯光、录音设备等进行熟悉和操作，负责摄影设备的日常检查和维护。</li>
+              <li>与导演、摄影师、主持人等团队成员紧密合作，协助现场准备工作以及拍摄转场。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 项目经历 -->
+  <section id="projects" class="section">
+    <div class="section-container">
+      <h2 class="section-title">项目经历</h2>
+      <div class="projects-grid">
+        <!-- 水稻病害知识图谱 -->
+        <div class="flip-card fade-in-up">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <h3>水稻病害知识图谱构建与应用</h3>
+              <p class="project-type">毕业论文 · 2023.02 - 2023.05</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Web Scraper</span>
+                <span class="tag">BiLSTM-CRF</span>
+                <span class="tag">Neo4j</span>
+              </div>
+              <p class="project-brief">
+                结合网络爬虫工具 WebScraper 与数据模型 BiLSTM+CRF 进行水稻病害的实体识别，提取实体关系，最终建立水稻病害知识图谱模型。
+              </p>
+            </div>
+            <div class="flip-back">
+              <p>项目亮点：</p>
+              <ul>
+                <li>使用爬虫自动采集领域文本，完成清洗、分词与实体标注。</li>
+                <li>基于 BiLSTM+CRF 进行命名实体识别，提取病害、病原、症状等实体。</li>
+                <li>将结构化结果导入图数据库，支持图查询与可视化呈现。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 微信聊天机器人 -->
+        <div class="flip-card fade-in-up">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <h3>微信聊天机器人</h3>
+              <p class="project-type">个人项目 · 2023.10</p>
+              <div class="project-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Wechaty</span>
+                <span class="tag">API</span>
+              </div>
+              <p class="project-brief">
+                结合开源项目 wechatbot，利用 Node + Wechaty 实现微信消息自动回复、定时发送、天气查询以及机器人回复。
+              </p>
+            </div>
+            <div class="flip-back">
+              <p>项目亮点：</p>
+              <ul>
+                <li>封装常用指令（如打卡、提醒、查询），提升群聊效率。</li>
+                <li>对接第三方接口获取天气、日程等信息，实现实用工具型机器人。</li>
+                <li>通过日志与错误捕获机制提升运行稳定性。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 数字化校园网络建设 -->
+        <div class="flip-card fade-in-up">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <h3>数字化校园网络建设方案</h3>
+              <p class="project-type">论文 · 2022.04</p>
+              <div class="project-tags">
+                <span class="tag">网络架构</span>
+                <span class="tag">IoT</span>
+              </div>
+              <p class="project-brief">
+                实现以物联网为基础的智慧化校园工作、学习和生活一体化环境；从系统架构上支撑录播系统、VOIP 电话系统、校园办公、安防监控、校园一卡通、广播系统、WiFi 无线覆盖等多个子系统。
+              </p>
+            </div>
+            <div class="flip-back">
+              <p>项目亮点：</p>
+              <ul>
+                <li>分析校园教学、管理与科研场景下的网络需求。</li>
+                <li>提出分层分区的网络架构，兼顾安全性与扩展性。</li>
+                <li>结合物联网接入与边缘计算的可能性进行扩展设计。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 静态网页设计 -->
+        <div class="flip-card fade-in-up">
+          <div class="flip-card-inner">
+            <div class="flip-front">
+              <h3>静态网页设计与前端练习</h3>
+              <p class="project-type">个人项目 · 2021.10</p>
+              <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <p class="project-brief">
+                运用 HTML + CSS 实现简单的用户登录与学生成绩统计功能的静态页面。
+              </p>
+            </div>
+            <div class="flip-back">
+              <p>项目亮点：</p>
+              <ul>
+                <li>实践 Flex / Grid 布局与多种渐变、阴影效果。</li>
+                <li>尝试封装组件化的卡片、按钮与导航栏样式。</li>
+                <li>探索纯原生 JS 的交互实现方式。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 技能与证书 -->
+  <section id="skills" class="section">
+    <div class="section-container">
+      <h2 class="section-title">技能与证书</h2>
+      <div class="skills-content skills-section">
+        <div class="skills-bars">
+          <div class="skills-group">
+            <h3>编程语言</h3>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>C</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>Python</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>Go</span>
+                <span class="skill-percent">60%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="60"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>PowerShell / Shell</span>
+                <span class="skill-percent">65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="65"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>工具与平台</h3>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>Cursor / VS Code</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>Office 三件套</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="80"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>Premiere Pro / After Effects</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="70"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-label">
+                <span>影刀 RPA / 自动化</span>
+                <span class="skill-percent">65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" data-progress="65"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="certificates-carousel certificates-section">
+          <div class="carousel">
+            <button class="carousel-btn carousel-prev" aria-label="上一张证书">&#10094;</button>
+            <div class="carousel-window">
+              <div class="carousel-track">
+                <div class="cert-card" data-title="Introduction to Model Context Protocol">
+                  <img src="assets/images/certificate1.jpg" alt="Introduction to Model Context Protocol 证书" loading="lazy">
+                  <h3>Introduction to Model Context Protocol</h3>
+                  <p>Skilljar · 证书编号 x52q8ojivtp8</p>
+                </div>
+                <div class="cert-card" data-title="Claude 101">
+                  <img src="assets/images/certificate2.jpg" alt="Claude 101 证书" loading="lazy">
+                  <h3>Claude 101</h3>
+                  <p>Anthropic 官方入门课程认证。</p>
+                </div>
+                <div class="cert-card" data-title="Claude Code in Action">
+                  <img src="assets/images/certificate3.jpg" alt="Claude Code in Action 证书" loading="lazy">
+                  <h3>Claude Code in Action</h3>
+                  <p>Skilljar · 证书编号 q2fw62ks5zu6</p>
+                </div>
+                <div class="cert-card" data-title="影刀 RPA 初级认证">
+                  <img src="assets/images/certificate-RPA.jpg" alt="影刀 RPA 初级认证证书" loading="lazy">
+                  <h3>影刀 RPA 初级认证</h3>
+                  <p>证书编号 YD2025108268 · 自动化流程设计实践。</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-btn carousel-next" aria-label="下一张证书">&#10095;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 个人兴趣 -->
+  <section id="interests" class="section">
+    <div class="section-container">
+      <h2 class="section-title">个人兴趣</h2>
+
+      <!-- 游戏展示区：饥荒 -->
+      <div class="games-showcase fade-in-up">
+        <article class="game-card">
+          <div class="game-image">
+            <img src="assets/images/饥荒游乐园.png" alt="饥荒 Don't Starve 游戏截图" loading="lazy">
+          </div>
+          <div class="game-info">
+            <h3>饥荒 Don't Starve</h3>
+            <p>
+              一款既残酷又治愈的生存游戏，喜欢在高压环境下规划资源、搭建基地、和朋友一起折腾出各种奇怪的玩法。
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- 电竞与直播（m0NESY 个人简介） -->
+      <div class="games-showcase fade-in-up">
+        <article class="game-card esports-card">
+          <div class="esports-photo">
+            <img src="assets/images/monesy.jpeg" alt="m0NESY" loading="lazy">
+          </div>
+          <div class="game-info esports-info">
+            <h3>电竞与直播</h3>
+            <p class="esports-summary">m0NESY:Falcons 成员，太子，黄色闪电，优势是永远年轻。</p>
+            <p>
+              日常会关注 CS2 相关赛事与直播，喜欢观察职业选手在高强度对局中的决策和细节处理。
+            </p>
+            <blockquote>
+              最喜欢的选手是 <strong>m0NESY</strong>，他在赛场上的冷静与创造力，也激励我在工作和学习中保持专注与好奇心。
+            </blockquote>
+          </div>
+        </article>
+      </div>
+
+      <!-- 饥荒截图画廊 -->
+      <div class="interests-subtitle">
+        <h3>游戏截图</h3>
+      </div>
+      <div class="gallery-grid gallery-grid--featured fade-in-up">
+        <div class="gallery-grid__hero">
+          <img src="assets/images/饥荒幽灵.jpg" alt="饥荒游戏截图：幽灵" loading="lazy">
+        </div>
+        <img src="assets/images/饥荒毕业.png" alt="饥荒游戏截图：毕业" loading="lazy">
+        <img src="assets/images/饥荒游乐园.png" alt="饥荒游戏截图：游乐园" loading="lazy">
+        <img src="assets/images/饥荒种地.png" alt="饥荒游戏截图：种地" loading="lazy">
+      </div>
+
+      <!-- 生活照片展示区 -->
+      <div class="life-photos-section">
+        <div class="interests-subtitle">
+          <h3>生活日常</h3>
+        </div>
+        <div class="life-photos-grid fade-in-up">
+          <img src="assets/images/旅游照.jpg" alt="旅游照片" loading="lazy">
+          <img src="assets/images/生活照.jpg" alt="生活日常照片" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 页脚 -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="mailto:3362079920@qq.com" class="footer-btn copy-email" data-copy="3362079920@qq.com" title="点击复制">QQ邮箱</a>
+        <a href="mailto:alexluan20130248@gmail.com" class="footer-btn copy-email" data-copy="alexluan20130248@gmail.com" title="点击复制">Gmail</a>
+        <a href="https://github.com/kieklie" class="footer-btn" title="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <button class="back-to-top" title="回到顶部">&#8593; 回到顶部</button>
+      <div class="footer-divider"></div>
+      <p class="copyright">&copy; 2026 栾宜伟. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 全局灯箱，用于证书与图片预览 -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片预览" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="关闭预览">&times;</button>
+      <img src="" alt="图片预览">
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- 右下角：回到首页（与页脚「回到顶部」区分） -->
+  <a href="#hero" class="back-to-hero" aria-label="回到首页" title="回到首页">↑ Home</a>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
