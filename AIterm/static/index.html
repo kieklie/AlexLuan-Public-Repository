@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 术语专家 | Terminology Expert</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Markdown 渲染库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.3.0/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            background: transparent;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .markdown-body h1 { font-size: 1.5em; }
+        .markdown-body h2 { font-size: 1.3em; }
+        .markdown-body h3 { font-size: 1.1em; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">🤖 AI 术语专家</h1>
+            </div>
+            <button class="new-chat-btn" id="newChatBtn">
+                <span>+</span> 新对话
+            </button>
+            <div class="session-list" id="sessionList">
+                <!-- 会话列表 -->
+            </div>
+        </aside>
+
+        <!-- 主聊天区域 -->
+        <main class="chat-main">
+            <!-- 顶部栏 -->
+            <header class="chat-header">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <h2 id="chatTitle">新对话</h2>
+                <div class="header-actions">
+                    <select id="modelSelect" class="model-select" title="选择AI模型">
+                        <option value="minimax" selected>⚡ MiniMax 2.7</option>
+                        <option value="deepseek">🔮 DeepSeek (快速)</option>
+                    </select>
+                    <button class="icon-btn" id="clearBtn" title="清空对话">🗑️</button>
+                </div>
+            </header>
+
+            <!-- 消息区域 -->
+            <div class="messages-container" id="messagesContainer">
+                <!-- 欢迎消息 -->
+                <div class="welcome-message" id="welcomeMessage">
+                    <div class="welcome-icon">👋</div>
+                    <h2>你好！我是 AI 术语专家</h2>
+                    <p>我可以帮助你理解人工智能领域的专业术语</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">📖</span>
+                            <span>术语定义解读</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📄</span>
+                            <span>论文来源追溯</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔤</span>
+                            <span>发音指导</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔗</span>
+                            <span>相关概念推荐</span>
+                        </div>
+                    </div>
+                    <div class="quick-terms">
+                        <p>试试查询这些术语：</p>
+                        <div class="quick-term-btns">
+                            <button class="quick-term-btn" data-term="Transformer">Transformer</button>
+                            <button class="quick-term-btn" data-term="Attention">Attention</button>
+                            <button class="quick-term-btn" data-term="BERT">BERT</button>
+                            <button class="quick-term-btn" data-term="GPT">GPT</button>
+                            <button class="quick-term-btn" data-term="LoRA">LoRA</button>
+                            <button class="quick-term-btn" data-term="RAG">RAG</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 消息列表 -->
+                <div class="messages-list" id="messagesList"></div>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea
+                        id="messageInput"
+                        placeholder="输入你想了解的 AI 术语..."
+                        rows="1"
+                        autocomplete="off"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" title="发送 (Enter)">
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="input-hint">
+                    按 <kbd>Enter</kbd> 发送，<kbd>Shift + Enter</kbd> 换行
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+        <div class="typing-indicator">
+            <span></span><span></span><span></span>
+        </div>
+        <span class="loading-text">AI 正在思考...</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- 部署到 EdgeOne 且 API 在阿里云时，取消下一行注释并填写 HTTPS API 根地址（无尾斜杠） -->
+    <script>window.__API_BASE__ = 'https://api.alexluan.xyz';</script>
+    <script src="/static/app.js?v=17"></script>
+</body>
+</html>
