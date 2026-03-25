@@ -64,6 +64,8 @@
     initAvatarReveal();
     initMouseRipple();
     initSloganRepulsion();
+    initThemeToggle();
+    initFlipCardClick();
 
     const heroEl = document.getElementById("hero");
     if (heroEl) heroObserver.observe(heroEl);
@@ -728,6 +730,59 @@
     );
 
     sections.forEach((section) => observer.observe(section));
+  }
+
+  /** =============================
+   * 主题切换（深色/浅色模式）
+   * ============================= */
+  function initThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+
+    // 从 localStorage 读取主题偏好
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    toggle.addEventListener("click", () => {
+      const isLight = document.documentElement.getAttribute("data-theme") === "light";
+      if (isLight) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  }
+
+  /** =============================
+   * 翻转卡片点击交互（移动端适配）
+   * ============================= */
+  function initFlipCardClick() {
+    const flipCards = document.querySelectorAll(".flip-card");
+    if (!flipCards.length) return;
+
+    flipCards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        // 防止点击链接时触发翻转
+        if (e.target.closest("a")) return;
+        card.classList.toggle("is-flipped");
+      });
+
+      // 键盘支持
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", "点击翻转查看详情");
+
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.classList.toggle("is-flipped");
+        }
+      });
+    });
   }
 
   /** =============================
