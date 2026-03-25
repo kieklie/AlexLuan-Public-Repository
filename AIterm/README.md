@@ -71,11 +71,7 @@
 
 ### 本地运行
 
-1. 克隆仓库
-```bash
-git clone https://github.com/kieklie/AlexLuan-Public-Repository.git
-cd AlexLuan-Public-Repository/AIterm
-```
+1. 克隆仓库（暂无）
 
 2. 安装依赖
 ```bash
@@ -107,8 +103,6 @@ http://localhost:8000
 
 - **前端**：部署在腾讯云 EdgeOne
 - **后端**：部署在阿里云 ECS
-
-详细部署步骤请参考 [AITERM_EDGEONE_ALIYUN_DEPLOYMENT.md](./AITERM_EDGEONE_ALIYUN_DEPLOYMENT.md)
 
 ---
 
@@ -169,17 +163,11 @@ AIterm/
 
 ### DeepSeek (直连模式)
 
+- 多轮模型调用会导致等待时间大幅增加，为了方便聊天才有这个模式（作者补充）
 - 无会话概念
 - 无工具调用
 - 不存储数据
 - 响应更快
-
----
-
-## 相关文档
-
-- [部署指南](./AITERM_EDGEONE_ALIYUN_DEPLOYMENT.md) - 详细的云端部署步骤
-- [项目文档](./PROJECT_DOCUMENTATION.md) - 代码结构和技术细节
 
 ---
 
