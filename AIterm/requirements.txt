@@ -1,0 +1,22 @@
+# AI Terminology Agent - Python Dependencies
+
+# Web Framework
+fastapi==0.109.0
+uvicorn==0.27.0
+
+# OpenAI Compatible SDK (MiniMax / DeepSeek via OpenAI-compatible API)
+openai>=2.0.0
+httpx>=0.28.0
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Web search (Function Calling → Tavily)
+tavily-python>=0.5.0
+
+# PostgreSQL（sessions / messages / term_cache；需配置 DATABASE_URL）
+psycopg-binary>=3.2.2
+psycopg-pool>=3.2.0
+
+# Async HTTP client（TTS HTTP 调用）
+aiohttp>=3.9.0
