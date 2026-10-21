@@ -2,7 +2,7 @@ name: GLaDOS Auto Checkin
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 每天 UTC 01:00（台湾时间 09:00）
+    - cron: '0 1 * * *'  # 每天 UTC 01:00（北京时间/台湾时间 09:00）
   workflow_dispatch:      # 允许手动触发
 
 jobs:
@@ -15,4 +15,5 @@ jobs:
             -H "cookie: ${{ secrets.GLADOS_COOKIE }}" \
             -H "content-type: application/json" \
             -H "referer: https://glados.cloud/console/checkin" \
+            -H "user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
             -d '{"token": "glados.one"}'
